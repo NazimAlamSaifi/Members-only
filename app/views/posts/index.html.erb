@@ -1,0 +1,25 @@
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <h1>Latest Secrets</h1>
+  <% unless user_signed_in? %>
+    <p style="color: var(--text-muted); font-size: 0.9rem;">Sign in to reveal authors.</p>
+  <% end %>
+</div>
+
+<div class="post-list">
+  <% @posts.each do |post| %>
+    <div class="post-card">
+      <div class="post-body">
+        "<%= post.body %>"
+      </div>
+      
+      <div class="post-meta">
+        Shared by: 
+        <% if user_signed_in? %>
+          <span class="author-badge"><%= post.user.email %></span>
+        <% else %>
+          <span class="author-badge">Anonymous</span>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

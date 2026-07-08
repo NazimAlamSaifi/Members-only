@@ -1,0 +1,15 @@
+<div class="form-wrapper">
+  <h2 style="margin-bottom: 1.5rem;">Whisper a Secret</h2>
+
+  <%= form_with model: @post do |form| %>
+    <div class="form-group">
+      <%= form.label :body, "Your Secret Message", class: "form-label" %>
+      <%= form.text_area :body, class: "form-control", rows: 5, placeholder: "What's on your mind?..." %>
+    </div>
+
+    <div>
+      <%= form.submit "Share Secret", class: "btn btn-primary" %>
+      <%= link_to "Cancel", root_path, class: "btn", style: "color: var(--text-muted); margin-left: 1rem;" %>
+    </div>
+  <% end %>
+</div>

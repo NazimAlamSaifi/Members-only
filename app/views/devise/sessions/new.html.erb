@@ -1,0 +1,30 @@
+<div class="form-wrapper">
+  <h2 style="margin-bottom: 1.5rem;">Log In to the Clubhouse</h2>
+
+ <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { data: { turbo: false } }) do |f| %>
+    <div class="form-group">
+      <%= f.label :email, class: "form-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, class: "form-label" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="form-group" style="display: flex; align-items: center; gap: 0.5rem;">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, style: "margin: 0; font-weight: normal; color: var(--text-muted);" %>
+      </div>
+    <% end %>
+
+    <div style="margin-top: 1.5rem;">
+      <%= f.submit "Log In", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #334155;">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
